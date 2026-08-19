@@ -1,10 +1,5 @@
-variable "project_name" {
-  description = "Name used to tag EC2 resources."
-  type        = string
-}
-
-variable "vpc_id" {
-  description = "VPC in which to create the security group."
+variable "name" {
+  description = "Name tag and resource-name prefix for the EC2 instance."
   type        = string
 }
 
@@ -13,12 +8,12 @@ variable "subnet_id" {
   type        = string
 }
 
-variable "ami_id" {
-  description = "AMI ID for the EC2 instance."
+variable "security_group_id" {
+  description = "Security group to attach to the EC2 instance."
   type        = string
 }
 
-variable "instance_type" {
-  description = "EC2 instance type."
+variable "ami_id" {
+  description = "AMI ID for the EC2 instance."
   type        = string
 }
