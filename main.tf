@@ -5,18 +5,26 @@ data "aws_ssm_parameter" "amazon_linux_2023" {
 module "vpc" {
   source = "./modules/vpc"
 
-  project_name        = var.project_name
-  vpc_cidr            = var.vpc_cidr
-  public_subnet_cidr  = var.public_subnet_cidr
-  private_subnet_cidr = var.private_subnet_cidr
+  name_prefix        = var.project_name
+  cidr_block         = var.vpc_cidr
+  public_subnet_cidr = var.public_subnet_cidr
+  az                 = var.availability_zone
 }
 
-module "ec2" {
+module "ec2_a" {
   source = "./modules/ec2-instance"
 
-  project_name  = var.project_name
-  vpc_id        = module.vpc.vpc_id
-  subnet_id     = module.vpc.public_subnet_id
-  ami_id        = data.aws_ssm_parameter.amazon_linux_2023.value
-  instance_type = var.instance_type
+  name              = "${var.project_name}-ec2-a"
+  subnet_id         = module.vpc.public_subnet_id
+  security_group_id = module.vpc.security_group_id
+  ami_id             = data.aws_ssm_parameter.amazon_linux_2023.value
+}
+
+module "ec2_b" {
+  source = "./modules/ec2-instance"
+
+  name              = "${var.project_name}-ec2-b"
+  subnet_id         = module.vpc.public_subnet_id
+  security_group_id = module.vpc.security_group_id
+  ami_id             = data.aws_ssm_parameter.amazon_linux_2023.value
 }
