@@ -1,9 +1,9 @@
-variable "project_name" {
-  description = "Name used to tag VPC resources."
+variable "name_prefix" {
+  description = "Prefix used to name VPC resources."
   type        = string
 }
 
-variable "vpc_cidr" {
+variable "cidr_block" {
   description = "CIDR block for the VPC."
   type        = string
 }
@@ -13,7 +13,7 @@ variable "public_subnet_cidr" {
   type        = string
 }
 
-variable "private_subnet_cidr" {
-  description = "CIDR block for the private subnet."
+variable "az" {
+  description = "Availability Zone for the public subnet."
   type        = string
 }
