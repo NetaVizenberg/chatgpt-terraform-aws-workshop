@@ -5,7 +5,7 @@ variable "aws_region" {
 }
 
 variable "project_name" {
-  description = "Name used to tag workshop resources."
+  description = "Name prefix used for workshop resources."
   type        = string
   default     = "chatgpt-terraform-workshop"
 }
@@ -22,14 +22,8 @@ variable "public_subnet_cidr" {
   default     = "10.0.1.0/24"
 }
 
-variable "private_subnet_cidr" {
-  description = "CIDR block for the private subnet."
+variable "availability_zone" {
+  description = "Availability Zone for the public subnet."
   type        = string
-  default     = "10.0.2.0/24"
-}
-
-variable "instance_type" {
-  description = "EC2 instance type."
-  type        = string
-  default     = "t3.micro"
+  default     = "us-east-1a"
 }
