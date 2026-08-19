@@ -1,0 +1,22 @@
+# Terraform local state
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Terraform variable files that may contain secrets
+*.tfvars
+*.tfvars.json
+
+# Terraform CLI configuration
+.terraformrc
+terraform.rc
+
+# Plan files
+*.tfplan
+
+# OS / editor files
+.DS_Store
+.vscode/
+.idea/
