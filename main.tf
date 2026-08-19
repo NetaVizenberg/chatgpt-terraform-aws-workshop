@@ -17,7 +17,7 @@ module "ec2_a" {
   name              = "${var.project_name}-ec2-a"
   subnet_id         = module.vpc.public_subnet_id
   security_group_id = module.vpc.security_group_id
-  ami_id             = data.aws_ssm_parameter.amazon_linux_2023.value
+  ami_id            = data.aws_ssm_parameter.amazon_linux_2023.value
 }
 
 module "ec2_b" {
@@ -26,5 +26,5 @@ module "ec2_b" {
   name              = "${var.project_name}-ec2-b"
   subnet_id         = module.vpc.public_subnet_id
   security_group_id = module.vpc.security_group_id
-  ami_id             = data.aws_ssm_parameter.amazon_linux_2023.value
+  ami_id            = data.aws_ssm_parameter.amazon_linux_2023.value
 }
